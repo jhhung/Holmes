@@ -1,0 +1,9 @@
+[submodule "lib/json"]
+	path = lib/json
+	url = https://github.com/nlohmann/json.git
+[submodule "lib/spdlog"]
+	path = lib/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "lib/htslib"]
+	path = lib/htslib
+	url = https://github.com/samtools/htslib.git
