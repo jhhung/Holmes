@@ -1,0 +1,36 @@
+{
+    "disease": {
+        "adar": false,
+        "id": 0,
+        "onset": true,
+        "severe": true,
+        "yield": 80,
+        "gene": [
+            {
+                "chr": "",
+                "start": 0,
+                "end": 0,
+                "adar": false,
+                "onset": false,
+                "severe": false,
+                "yield": false
+            }
+        ]
+    },
+    "observation": null,
+    "patient": [
+        {
+            "dad_vcf": "",
+            "healthy_family": null,
+            "is_dad_sick": false,
+            "is_denovo": false,
+            "is_mom_sick": false,
+            "is_sick": true,
+            "mom_vcf": "",
+            "patient_vcf": "",
+            "sex": true,
+            "sick_family": null
+        }
+    ],
+    "gene_list_file": ""
+}

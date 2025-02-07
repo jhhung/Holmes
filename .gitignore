@@ -1,0 +1,10 @@
+.venv/
+.vscode/
+.cache/
+stage/
+data/
+build/
+bin/
+.nfs*
+*.out
+*.exe

@@ -1,0 +1,38 @@
+{
+    "options": [
+        "--vcf",
+        "--offline",
+        "--force_overwrite", 
+        "--variant_class",
+        "--symbol",
+        "--sift b",
+        "--polyphen b",
+        "--numbers",
+        "--domains",
+        "--canonical",
+        "--hgvs",
+        "--hgvsg",
+        "--merged",
+        "--mane",
+        "--mane_select",
+        "--no_stats",
+        "--quiet"
+    ],
+    "plugins": {
+        "MaxEntScan": [
+            "fordownload"
+        ],
+        "pLI": [],
+        "REVEL": [
+            "new_tabbed_revel_grch38.tsv.gz"
+        ],
+        "CADD": [
+            "GRCh38_whole_genome_SNVs.tsv.gz",
+            "GRCh38_gnomad.genomes.r3.0.indel.tsv.gz"
+        ],
+        "NMD": []
+    },
+    "assembly": "Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz",
+    "vep_repo_dir": "",
+    "vep_data_dir": ""
+}
