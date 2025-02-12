@@ -33,12 +33,12 @@ Annotate ClinVar VCF with VEP
 options:
   -h, --help            show this help message and exit
   -i INPUT, --input INPUT
-                        Input VCF file
-  -v VEP, --vep VEP     VEP binary
+                        Input ClinVar VCF file
+  -v VEP, --vep VEP     VEP executable (under cloned ensembl-vep directory)
   -f FASTA, --fasta FASTA
                         Fasta ref file
   -o OUTPUT, --output OUTPUT
-                        Output vep annotation file
+                        Output vep annotation vcf file
   -t THREAD, --thread THREAD
                         fork of VEP
   --grch37              use GRCh37 assembly
@@ -68,9 +68,33 @@ Allowed options:
   -t [ --thread ] arg (=4)     Thread num for parallel building GnomAD
 ```
 
-## VEP Cache builder
+For example, the database building command may look like this:
+
+```bash
+./bin/database_builder \
+    -k $dir38/ALL.wgs.shapeit2_integrated_snvindels_v2a.GRCh38.27022019.sites.vcf.gz \
+    --clinvar $dir38/clinvar_20240107_annotated.vcf \
+    --coverage $dir38/coverage_38_url.txt \
+    --omim $dir_no_ver/genemap2.txt \
+    --ncbigene $dir_no_ver/Homo_sapiens.gene_info \
+    --uniprot $dir_no_ver/uniprot_sprot.xml \
+    --ensembl_gtf $dir38/Homo_sapiens.GRCh38.107.gtf.gz \
+    --refseq_gtf $dir38/GCF_000001405.40_GRCh38.p14_genomic.gtf \
+    --gnom_file $dir38/gnomad_38_urls.txt \
+    -o <output database dir> \
+    -t <num threads>
+```
+
+Each type of databases is independent, so you can build each databases separately.
+(Note that GTF database need two option: --ensembl_gtf and --refseq_gtf)
+
+Since building the gnomAD database requires downloading hundreds of gigabytes of gnomAD VCF files while simultaneously performing online building, it will take a significant amount of time (rather than space, as the downloaded gnomAD VCF files are not stored on the hard drive due to the online building process). It is recommended to construct it separately from other databases and use the -t option, which allows multiple chromosomes to be downloaded & built simultaneously.
+
+## VEP Cache builder (Optional)
 
 If you want to use the VEP cache to speed up VEP annotation, you can use `vep_cache_builder`.
+
+**Note that the VEP cache is only significantly beneficial when the input VCF for the Sherloc Module contains a very large number of variants (hundreds of thousands to millions).**
 
 ```bash
 ./bin/vep_cache_builder 

@@ -38,10 +38,10 @@ wget ftp://ftp.ensembl.org/pub/release-107/fasta/homo_sapiens/dna/Homo_sapiens.G
 gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 bgzip Homo_sapiens.GRCh38.dna.primary_assembly.fa
 
-# download and extract indexed VEP cache
+# download and extract indexed merged VEP cache (contains both Ensembl and RefSeq annotation)
 cd $HOME/.vep
-curl -O ftp://ftp.ensembl.org/pub/release-107/variation/indexed_vep_cache/homo_sapiens_vep_107_GRCh38.tar.gz
-tar xzf homo_sapiens_vep_107_GRCh38.tar.gz
+curl -O ftp://ftp.ensembl.org/pub/release-107/variation/indexed_vep_cache/homo_sapiens_merged_vep_107_GRCh38.tar.gz
+tar xzf homo_sapiens_merged_vep_107_GRCh38.tar.gz
 
 # download data for plugins
 mkdir $HOME/.vep/vep_plugin_data

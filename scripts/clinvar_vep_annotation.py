@@ -4,10 +4,10 @@ import subprocess
 from pathlib import Path as P
 def getargs():
     parser = argparse.ArgumentParser(description="Annotate ClinVar VCF with VEP")
-    parser.add_argument("-i", "--input", type=str, help="Input VCF file", required=True)
-    parser.add_argument("-v", "--vep", type=P, help="VEP binary", required=True)
+    parser.add_argument("-i", "--input", type=str, help="Input ClinVar VCF file", required=True)
+    parser.add_argument("-v", "--vep", type=P, help="VEP executable (under cloned ensembl-vep directory)", required=True)
     parser.add_argument("-f", "--fasta", type=str, help="Fasta ref file", required=True)
-    parser.add_argument("-o", "--output", type=str, help="Output vep annotation file", required=True)
+    parser.add_argument("-o", "--output", type=str, help="Output vep annotation vcf file", required=True)
     parser.add_argument("-t", "--thread", type=int, help="fork of VEP", default=1)
     parser.add_argument("--grch37", action='store_true', help="use GRCh37 assembly")
     args = parser.parse_args()
