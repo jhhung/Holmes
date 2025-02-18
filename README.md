@@ -16,6 +16,7 @@ Holmes leverages Sherloc-guided criteria, augmented with novel disease-specific 
 - [Boost 1.74.0](https://www.boost.org/users/history/version_1_74_0.html) to build the C++ Core Module
 - [Ensembl VEP](https://asia.ensembl.org/info/docs/tools/vep/index.html) release/107 to run C++ Core Module
 - [python 3.7](https://www.python.org/downloads/) or higher to run Compound Heterozygosity Module
+- [libcurl4-openssl-dev](https://github.com/curl/curl) is required to enable htslib to open remote files
 
 ### Clone this project
 
